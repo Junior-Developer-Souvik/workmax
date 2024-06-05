@@ -51,8 +51,7 @@
             </div>
         </div> 
         <div class="col-12" id="proDiv">
-            <div class="row g-3 align-items-end">
-                
+            <div class="row g-3 align-items-end">              
                 <div class="col-sm-4">
                     <div class="form-group">
                         <label for="">Product </label>
@@ -77,11 +76,7 @@
                     @empty
                         
                     @endforelse 
-                    @endif
-                        
-                   
-                    
-                    
+                    @endif                  
                 </ul>                
             </div>
         </div>

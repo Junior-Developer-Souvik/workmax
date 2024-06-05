@@ -113,8 +113,8 @@ class PurchaseOrderController extends Controller
             'details.*.product_id' => 'required',            
             'details.*.hsn_code' => 'required',
             'details.*.pcs' => 'required|not_in:0',
-            'details.*.weight' => 'required',
-            'details.*.weight_unit' => 'required',
+            // 'details.*.weight' => 'required',
+            // 'details.*.weight_unit' => 'required',
             'details.*.piece_price' => 'required|not_in:0',
             'details.*.qty' => 'required|not_in:0'            
         ],[
@@ -122,8 +122,8 @@ class PurchaseOrderController extends Controller
             'details.*.hsn_code.required' => 'Please add hsn code of product',
             'details.*.pcs.required' => 'Please add pices per carton',
             'details.*.pcs.not_in' => 'Please add pices per carton',
-            'details.*.weight.required' => 'Please add weight per carton',
-            'details.*.weight_unit.required' => 'Please add carton weight unit',
+            // 'details.*.weight.required' => 'Please add weight per carton',
+            // 'details.*.weight_unit.required' => 'Please add carton weight unit',
             'details.*.piece_price.required' => 'Please add price per piece',
             'details.*.piece_price.not_in' => 'Please add price per piece',
             'details.*.qty.required' => 'Please add number of carton',
@@ -160,11 +160,11 @@ class PurchaseOrderController extends Controller
         $purchase_order_id = PurchaseOrder::insertGetId($purchase_orders_data);
 
         foreach($details as $item){
-            if($item['weight_unit'] == 'kg'){
-                $item['weight_value'] = ($item['weight'] * 1000);
-            } else {
-                $item['weight_value'] = $item['weight'];
-            }
+            // if($item['weight_unit'] == 'kg'){
+            //     $item['weight_value'] = ($item['weight'] * 1000);
+            // } else {
+            //     $item['weight_value'] = $item['weight'];
+            // }
 
             PurchaseOrderProduct::insert([
                 'purchase_order_id' => $purchase_order_id,
@@ -176,9 +176,9 @@ class PurchaseOrderController extends Controller
                 'piece_price' => $item['piece_price'],
                 'total_price' => $item['total_price'],
                 'hsn_code' => $item['hsn_code'],
-                'weight' => $item['weight'],
-                'weight_unit' => $item['weight_unit'],
-                'weight_value' => $item['weight_value'],
+                // 'weight' => $item['weight'],
+                // 'weight_unit' => $item['weight_unit'],
+                // 'weight_value' => $item['weight_value'],
                 'created_at' => date('Y-m-d H:i:s'),
                 'updated_at' => date('Y-m-d H:i:s')
             ]);
@@ -201,7 +201,7 @@ class PurchaseOrderController extends Controller
                     'barcode_no' => $barcode_no,
                     'code_html' => $code_html,
                     'code_base64_img' => $code_base64_img,
-                    'po_weight_val' => $item['weight_value']
+                    // 'po_weight_val' => $item['weight_value']
                 ]);
             }
 
@@ -252,8 +252,8 @@ class PurchaseOrderController extends Controller
             'details.*.product_id' => 'required',            
             'details.*.hsn_code' => 'required',
             'details.*.pcs' => 'required|not_in:0',
-            'details.*.weight' => 'required',
-            'details.*.weight_unit' => 'required',
+            // 'details.*.weight' => 'required',
+            // 'details.*.weight_unit' => 'required',
             'details.*.piece_price' => 'required|not_in:0',
             'details.*.qty' => 'required|not_in:0'            
         ],[
@@ -261,8 +261,8 @@ class PurchaseOrderController extends Controller
             'details.*.hsn_code.required' => 'Please add hsn code of product',
             'details.*.pcs.required' => 'Please add pices per carton',
             'details.*.pcs.not_in' => 'Please add pices per carton',
-            'details.*.weight.required' => 'Please add weight per carton',
-            'details.*.weight_unit.required' => 'Please add carton weight unit',
+            // 'details.*.weight.required' => 'Please add weight per carton',
+            // 'details.*.weight_unit.required' => 'Please add carton weight unit',
             'details.*.piece_price.required' => 'Please add price per piece',
             'details.*.piece_price.not_in' => 'Please add price per piece',
             'details.*.qty.required' => 'Please add number of carton',
@@ -282,11 +282,11 @@ class PurchaseOrderController extends Controller
         
         
         foreach($details as $item){
-            if($item['weight_unit'] == 'kg'){
-                $item['weight_value'] = ($item['weight'] * 1000);
-            } else {
-                $item['weight_value'] = $item['weight'];
-            }
+            // if($item['weight_unit'] == 'kg'){
+            //     $item['weight_value'] = ($item['weight'] * 1000);
+            // } else {
+            //     $item['weight_value'] = $item['weight'];
+            // }
             PurchaseOrderProduct::where('purchase_order_id',$params['id'])->where('product_id',$item['product_id'])->update([
                 'qty' => $item['qty'],
                 'pcs' => $item['pcs'],
@@ -294,9 +294,9 @@ class PurchaseOrderController extends Controller
                 'piece_price' => $item['piece_price'],
                 'total_price' => $item['total_price'],
                 'hsn_code' => $item['hsn_code'],
-                'weight' => $item['weight'],
-                'weight_unit' => $item['weight_unit'],
-                'weight_value' => $item['weight_value'],
+                // 'weight' => $item['weight'],
+                // 'weight_unit' => $item['weight_unit'],
+                // 'weight_value' => $item['weight_value'],
                 'updated_at' => date('Y-m-d H:i:s')
             ]);
 
@@ -323,7 +323,7 @@ class PurchaseOrderController extends Controller
                             'barcode_no' => $barcode_no,
                             'code_html' => $code_html,
                             'code_base64_img' => $code_base64_img,
-                            'po_weight_val' => $item['weight_value']
+                            // 'po_weight_val' => $item['weight_value']
                         ]);
                     }
 

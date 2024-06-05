@@ -70,7 +70,7 @@ class RevenueController extends Controller
             $profit_in_hand = getPercentageVal($total_revenue_collected,$net_profit_margin);
             $profit_in_hand = number_format((float)$profit_in_hand, 2, '.', '');
         }
-        
+           
        
         # reserved amount
         $withdraw_percentage = $this->withdraw_percentage; 

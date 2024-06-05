@@ -148,7 +148,7 @@
                                 <th width="400px">Product <span class="text-danger">*</span></th>
                                 <th>HSN Code <span class="text-danger">*</span></th>
                                 <th>Pcs per Ctn <span class="text-danger">*</span></th>
-                                <th rowspan="2">Weight per Ctn <span class="text-danger">*</span></th>
+                                {{-- <th rowspan="2">Weight per Ctn <span class="text-danger">*</span></th> --}}
                                 <th>Price/Pc (Inc.Tax) <span class="text-danger">*</span></th>
                                 <th>No of Ctns <span class="text-danger">*</span></th>
                                 <th>Price Per Ctn (Inc.Tax)</th>
@@ -176,7 +176,7 @@
                                     <input type="number"  name="details[{{$key}}][pcs]" id="pcs{{$key}}" class="form-control" value="{{ old('details.'.$key.'.pcs') }}" onkeyup="if(value<0) value=0;calculatePrice({{$key}})" onchange="if(value<0) value=0;calculatePrice({{$key}})">
                                     @error('details.'.$key.'.pcs') <p class="small text-danger">{{ $message }}</p> @enderror
                                 </td>
-                                <td>
+                                {{-- <td>
                                     <div class="row">
                                         <div class="col-sm-8">
                                             <input type="text" class="form-control"  name="details[{{$key}}][weight]" id="weight{{$key}}" maxlength="5" onkeypress="validateNum(event)" placeholder="Enter carton weight">
@@ -190,7 +190,7 @@
                                             @error('details.'.$key.'.weight_unit') <p class="small text-danger">{{ $message }}</p> @enderror
                                         </div>
                                     </div>
-                                </td>
+                                </td> --}}
                                 <td>
                                     <input type="text" name="details[{{$key}}][piece_price]"  id="piece_price{{$key}}" class="form-control piece_price"  placeholder="Product Cost Price" onkeyup="calculatePrice({{$key}})"  onkeypress="validateNum(event)" value="{{ old('details.'.$key.'.piece_price') }}">
                                     @error('details.'.$key.'.piece_price') <p class="small text-danger">{{ $message }}</p> @enderror
@@ -225,7 +225,7 @@
                                 <td>
                                     <input type="number"  name="details[1][pcs]" id="pcs1" class="form-control" value="1" onkeyup="if(value<0) value=0;calculatePrice(1)" onchange="if(value<0) value=0;calculatePrice(1)">
                                 </td>
-                                <td>
+                                {{-- <td>
                                     <div class="row">
                                         <div class="col-sm-8">
                                             <input type="text" class="form-control"  name="details[1][weight]" id="weight1" maxlength="5" onkeypress="validateNum(event)" placeholder="Enter carton weight">
@@ -237,7 +237,7 @@
                                             </select>
                                         </div>
                                     </div>
-                                </td>
+                                </td> --}}
                                 <td>
                                     <input type="text"   name="details[1][piece_price]"  id="piece_price1" class="form-control piece_price" value="" placeholder="Product Cost Price" onkeyup="calculatePrice(1)"  onkeypress="validateNum(event)">
                                 </td>
@@ -404,19 +404,7 @@
             <td>
                 <input type="number"  name="details[`+i+`][pcs]" id="pcs`+i+`" class="form-control" value="1" onkeyup="if(value<0) value=0;calculatePrice(`+i+`)" onchange="if(value<0) value=0;calculatePrice(`+i+`)">
             </td>
-            <td>
-                <div class="row">
-                    <div class="col-sm-8">
-                        <input type="text" class="form-control"  name="details[`+i+`][weight]" id="weight`+i+`" maxlength="5" onkeypress="validateNum(event)" placeholder="Enter carton weight">
-                    </div>
-                    <div class="col-sm-4">
-                        <select name="details[`+i+`][weight_unit]"  id="weight_unit`+i+`" class="form-control">
-                            <option value="kg" selected>KG</option>
-                            <option value="g">G</option>
-                        </select>
-                    </div>
-                </div>
-            </td>
+            
             <td>
                 <input type="text"   name="details[`+i+`][piece_price]"  id="piece_price`+i+`" class="form-control piece_price" value="" placeholder="Product Cost Price" onkeyup="calculatePrice(`+i+`)"  onkeypress="validateNum(event)">
             </td>

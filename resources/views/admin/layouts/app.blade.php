@@ -143,7 +143,7 @@
                         <ul>
                             <li class="@if(request()->is('admin/purchaseorder*')) { {{'active'}} }  @endif"><a href="{{ route('admin.purchaseorder.index') }}">PO</a></li>
                             <li class="@if(request()->is('admin/grn/list')) { {{'active'}} }  @endif"><a href="{{ route('admin.grn.list') }}">GRN</a></li>
-                            <li class="@if(request()->is('admin/purchasereturn/*')) { {{'active'}} }  @endif"><a href="{{ route('admin.purchasereturn.list') }}">Return</a></li>
+                            <li class="@if(request()->is('admin/purchasereturn/*')) { {{'active'}} }  @endif"><a href="{{ route('admin.purchasereturn.list') }}">Purchase Return</a></li>
                             <li class="@if(request()->is('admin/grn/searchbarcodes')) { {{'active'}} }  @endif"><a href="{{ route('admin.grn.searchbarcodes') }}">Search Stock Barcodes</a></li>
                         </ul>
                     </li> 
@@ -161,6 +161,11 @@
                             <li class="@if (request()->is('admin/invoice*')) active @endif"><a href="{{ route('admin.invoice.index') }}">Invoices</a> </li>
                             @if(Auth::user()->designation != 2)
                                 <li class=""><a href="{{ route('admin.threshold.list') }}">Price Requests</a></li>
+                            @endif
+                            @if ($accessSales)
+                                <li class="@if(request()->is('admin/returns*') ) { {{'active'}} }  @endif">
+                                    <a href="{{route('admin.returns.list')}}">Return Goods</a>
+                                </li>  
                             @endif
 
                         </ul>
@@ -218,7 +223,7 @@
                             
 
                             
-                            <li class="{{ ( request()->is('admin/revenue/withdrawls') ) ? 'active' : '' }}"><a href="{{ route('admin.revenue.withdrawls') }}">List Partner Withdrawls</a></li> 
+                            <li class="{{ ( request()->is('admin/revenue/withdrawls') ) ? 'active' : '' }}"><a href="{{ route('admin.revenue.withdrawls') }}"> Withdrawl Fund(Partners)</a></li> 
                             
                             
                             
@@ -245,11 +250,7 @@
                     @endif
                     {{-- ========== --}}
                     
-                    @if ($accessSales)
-                    <li class="@if(request()->is('admin/returns*') ) { {{'active'}} }  @endif">
-                        <a href="{{route('admin.returns.list')}}">Return Goods</a>
-                    </li>  
-                    @endif
+                    
                     
 
                     @if ($accessReport)
