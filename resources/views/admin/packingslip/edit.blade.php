@@ -169,7 +169,6 @@
             }
             // isChanged
         }
-
         function removeItem(i,e,oldQty,pcs){
             var count_tr_pro = $('.tr_pro').length;   
             if(count_tr_pro > 1){
