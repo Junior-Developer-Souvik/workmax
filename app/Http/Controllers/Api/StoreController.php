@@ -99,7 +99,7 @@ class StoreController extends Controller
         ]);
         //dd($data);
         $stores = $this->storeRepository->noorderreasonupdate($data);
-         //dd($stores);
+         //dd($stores); 
         return response()->json(['error'=>false, 'resp'=>'No order Reason data created successfully','data'=>$stores]);
     }
 

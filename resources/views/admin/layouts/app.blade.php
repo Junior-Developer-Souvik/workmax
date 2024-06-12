@@ -223,7 +223,7 @@
                             
 
                             
-                            <li class="{{ ( request()->is('admin/revenue/withdrawls') ) ? 'active' : '' }}"><a href="{{ route('admin.revenue.withdrawls') }}"> Withdrawl Fund(Partners)</a></li> 
+                            <li class="{{ ( request()->is('admin/revenue/withdrawls') ) ? 'active' : '' }}"><a href="{{ route('admin.revenue.withdrawls') }}"> Withdrawl Funds(Partner)</a></li> 
                             
                             
                             
@@ -276,9 +276,9 @@
                             <li class="@if(request()->is('admin/revenue/index')) { {{'active'}} }  @endif">
                                 <a href="{{ route('admin.revenue.index') }}">Profit & Loss</a>
                             </li>  
-                            <li class="@if(request()->is('admin.revenue.withdrawls')) { {{'active'}} }  @endif">
+                            {{-- <li class="@if(request()->is('admin.revenue.withdrawls')) { {{'active'}} }  @endif">
                                 <a href="{{ route('admin.revenue.withdrawls',['auth_type'=>1]) }}">My Withdrawls</a>
-                            </li>   
+                            </li>    --}}
                             @endif
                             
                         </ul>

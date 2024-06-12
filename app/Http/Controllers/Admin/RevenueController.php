@@ -25,8 +25,8 @@ class RevenueController extends Controller
     {
         # app settings...
         $settings = DB::table('settings')->find(1);
-        $this->investment_percentage = $settings->investment_percentage;
-        $this->withdraw_percentage = $settings->withdraw_percentage;
+        $this->investment_percentage = $settings? $settings->investment_percentage : '0';
+        $this->withdraw_percentage = $settings? $settings->withdraw_percentage : '0';
     }
 
      public function details(Request $request)
@@ -44,6 +44,8 @@ class RevenueController extends Controller
 
         # total sales
         $total_sales = DB::table('invoice')->sum('net_price');
+        // dd($total_sales);
+       
         # total expense
         $total_expense = DB::table('journal')->where('is_debit',1)->sum('transaction_amount');
         # net profit
@@ -95,13 +97,12 @@ class RevenueController extends Controller
         $total_service_slips = DB::table('service_slip')->sum('amount');
 
         
-        $gross_profit = (($goods_purchased_amount - $total_sales)+$total_service_slips);
-        // dd($goods_purchased_amount);
+        $gross_profit = (($total_sales-$goods_purchased_amount)+$total_service_slips);
 
          /* Gross Profit % = (Gross profit amount / Sold Goods Purchased amount) * 100 */
          $gross_profit_percentage = 0;
-         if($goods_purchased_amount>0){
-             $gross_profit_percentage = (($gross_profit/$goods_purchased_amount)*100);
+         if($goods_purchased_amount>0 && $total_sales>0){
+             $gross_profit_percentage = ((($total_sales-$goods_purchased_amount)/$total_sales)*100);
              $gross_profit_percentage = number_format((float)$gross_profit_percentage, 2, '.', '');
          }
 

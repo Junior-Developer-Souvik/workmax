@@ -44,7 +44,6 @@ class PaymentCollectionController extends Controller
     
     public function store(Request $request): JsonResponse
     {
-
         $validator = Validator::make($request->all(), [
             'user_id' => ['required', 'integer', 'min:1', 'exists:users,id'],
             'store_id' => ['required', 'integer', 'min:1'],

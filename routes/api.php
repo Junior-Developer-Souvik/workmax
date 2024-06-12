@@ -43,7 +43,7 @@ Route::post('get-otp', 'Api\UserController@logincheck');
 Route::post('login-via-otp', 'Api\UserController@otpcheck');
 
 // Location Update
-Route::post('location-update', 'Api\UserController@location_update');
+Route::post('location-update', 'Api\UserController@location_update');//not done
 // Check User Existng Mac Id
 Route::post('check-user-macId', 'Api\UserController@checkUserMacId');
 
@@ -68,7 +68,7 @@ Route::post('payment-collection/list-by-store', 'Api\PaymentCollectionController
 Route::post('scan/box', 'Api\ScanController@box');
 Route::post('scan/stockout', 'Api\ScanController@stockout');
 Route::get('scan/pslist', 'Api\ScanController@ps_list');
-Route::post('scan/ret_pro_in', 'Api\ScanController@ret_pro_in');
+Route::post('scan/ret_pro_in', 'Api\ScanController@ret_pro_in');  //not done
 // purchase return
 Route::get('scan/purchase_return_list', 'Api\ScanController@purchase_return_list');
 Route::post('scan/purchase_return_stockout', 'Api\ScanController@purchase_return_stockout');

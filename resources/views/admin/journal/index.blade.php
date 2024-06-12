@@ -11,6 +11,30 @@
         {{ Session::get('message') }}
     </div>
     @endif
+    {{-- <div class="row">
+        <form action="{{ url()->current() }}" method="GET">
+        <div class="col-12">
+            <div class="row g-3 align-items-end">
+                <div class="col-6 col-sm-2">
+                    <label for="from_date">From</label>
+                    <input type="date" name="from_date" id="from_date"  class="form-control select-md date-val" value="{{ request('from_date') }}" max="{{ request('to_date') }}" min="{{ $min_from_date }}"  autocomplete="off">
+                </div>
+                <div class="col-6 col-sm-2">
+                    <label for="to_date">To</label>
+                    <input type="date" name="to_date" id="to_date"  class="form-control select-md date-val"  value="{{ request('to_date') }}" placeholder="To" max="{{ date('Y-m-d') }}" min="{{ request('from_date') }}" autocomplete="off">
+                </div>
+                <div class="col-6 col-sm-2">
+                    <button type="submit" class="btn btn-sm btn-danger">
+                        <i class="fa fa-filter"></i>
+                    </button>
+                    <a href="{{ url()->current() }}" class="btn btn-sm btn-light" data-toggle="tooltip" title="Clear filter">
+                        <i class="fa fa-times"></i>
+                    </a>
+                </div>
+            </div>     
+        </div>   
+    </form>
+    </div> --}}
     
     @php
         $net_value = 0;
