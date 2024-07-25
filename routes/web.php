@@ -6,6 +6,7 @@ use Illuminate\Support\Facades\Route;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Session;
+use Illuminate\Support\Facades\Artisan;
 
 /*
 |--------------------------------------------------------------------------
@@ -21,6 +22,12 @@ use Illuminate\Support\Facades\Session;
 // Route::get('/', function () {
 //     return view('welcome');
 // });
+
+Route::get('/clear-cache',function(){
+     Artisan::call('optimize:clear');
+     return "Cache cleared successfully";
+});
+
 Route::middleware(['guest'])->group(function() {
     Route::view('/', 'admin.auth.login')->name('home');
     Route::get('/login', 'Admin\Auth\AuthController@index');

@@ -86,16 +86,14 @@
                                 <td>
                                 {{$item->name}}
                                 <div class="row__action">
-                                    
-                                    
+                                
                                 </div>
                                 </td>
                                 <td>
                                     {{$item->designation_name}}
                                 </td>
                                 <td>
-                                    <p class="small text-muted mb-1"> 
-                                        
+                                    <p class="small text-muted mb-1">                                      
                                         @if(!empty($item->mobile))
                                         <span>Mobile: <strong>{{$item->mobile}}</strong></span> <br/>
                                         @endif
@@ -119,7 +117,7 @@
                                     
                                     <a href="{{ route('admin.staff.status', $item->id) }}" class="btn btn-outline-{{ ($item->status == 1) ? 'danger' : 'success' }} select-md">{{($item->status == 1) ? 'Suspend' : 'Active'}}</a>
 
-                                    @if (in_array($item->designation, [1,5]))
+                                    @if (in_array($item->designation, [1,4]))
                                         @if (!empty($item->mac_id))
                                             <a href="{{ route('admin.staff.logout_device', $item->id) }}" onclick="return confirm('Are you sure want to logout the user?');" class="btn btn-outline-warning select-md" title="Logout From Mobile App">Logout </a>
                                         @endif                                       

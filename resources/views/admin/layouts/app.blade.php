@@ -35,6 +35,7 @@
             // echo Auth::user()->type; die;
 
             // dd(Auth::user()->designation);
+	   
             if(Auth::user()->type == 1){
                 
                 $accessCustomer = true;
@@ -74,7 +75,7 @@
             </button>
             <div class="admin__logo">
                 <div class="logo">
-                    <img src="{{ asset('admin/images/workmaxlogo 1.png') }}" alt="">
+                    <img src="{{ asset('admin/images/TRINETRlogo.png') }}" alt="">
                 </div>            
             </div>
             <nav class="main__nav wmtools_nav1">
@@ -160,11 +161,11 @@
                             <li class="@if (request()->is('admin/packingslip*')) active @endif"><a href="{{ route('admin.packingslip.index') }}">Packing Slips</a> </li>
                             <li class="@if (request()->is('admin/invoice*')) active @endif"><a href="{{ route('admin.invoice.index') }}">Invoices</a> </li>
                             @if(Auth::user()->designation != 2)
-                                <li class=""><a href="{{ route('admin.threshold.list') }}">Price Requests</a></li>
+                                <li class=""><a href="{{ route('admin.threshold.list') }}">Price Request</a></li>
                             @endif
                             @if ($accessSales)
                                 <li class="@if(request()->is('admin/returns*') ) { {{'active'}} }  @endif">
-                                    <a href="{{route('admin.returns.list')}}">Return Goods</a>
+                                    <a href="{{route('admin.returns.list')}}">Sales Return</a>
                                 </li>  
                             @endif
 
@@ -316,7 +317,7 @@
                     </button>
                     <ul class="dropdown-menu dropdown-menu-end" aria-labelledby="dropdownMenuButton1">
 
-                        <li><a class="dropdown-item" href="{{route('admin.admin.profile')}}">Profile</a></li>
+                        <li><a class="dropdown-item" href="{{route('admin.admin.profile')}}">Profiles</a></li>
                         @if (Auth::user()->type == 1)
                         
                         <li>

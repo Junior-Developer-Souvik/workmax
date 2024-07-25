@@ -23,7 +23,7 @@
       <div class="login__right">
         <div class="login__block">
           <div class="logo__block">
-            <img src="{{ asset('admin/images/workmaxlogo 1.png') }}">
+            <img src="{{ asset('admin/images/TRINETRlogo.png') }}">
           </div>
 
           @if (Session::get('success'))<div class="alert alert-success">{{ Session::get('success') }}</div>@endif
